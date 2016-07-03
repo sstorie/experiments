@@ -1,0 +1,9 @@
+<div class="container" @panelWidthTrigger="expandedState">
+    <div class="title">
+        <span *ngIf="expanded" @titleTextTrigger="'in'">Notifications</span>
+        <a class="link" (click)="toggleExpandedState()">
+            <i @iconTrigger="expandedState" class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+        </a>
+    </div>
+
+</div>
