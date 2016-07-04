@@ -13,9 +13,15 @@ var index_1 = require("../shared/index");
 var NotificationComponent = (function () {
     function NotificationComponent() {
         this.remove = new core_1.EventEmitter(false);
+        this.expandedState = 'collapsed';
         this.notificationTypes = index_1.NotificationType;
     }
     NotificationComponent.prototype.ngOnInit = function () { };
+    NotificationComponent.prototype.ngOnChanges = function (changes) {
+        if (changes["expanded"] !== undefined) {
+            this.expandedState = this.expanded ? 'expanded' : 'collapsed';
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', index_1.Notification)
@@ -33,7 +39,25 @@ var NotificationComponent = (function () {
             moduleId: module.id,
             selector: 'notification',
             templateUrl: 'notification.component.html',
-            styleUrls: ['notification.component.css']
+            styleUrls: ['notification.component.css'],
+            animations: [
+                core_1.trigger('detailsTrigger', [
+                    core_1.state('in', core_1.style({ opacity: '1' })),
+                    core_1.transition('void => *', [
+                        core_1.style({ opacity: '0' }),
+                        core_1.animate('200ms 300ms')
+                    ]),
+                    core_1.transition('* => void', [
+                        core_1.animate('200ms', core_1.style({ opacity: '0' }))
+                    ])
+                ]),
+                core_1.trigger('iconTrigger', [
+                    core_1.state('collapsed', core_1.style({ fontSize: '1.0em' })),
+                    core_1.state('expanded', core_1.style({ fontSize: '1.5em' })),
+                    core_1.transition('collapsed => expanded', core_1.animate('200ms ease-in')),
+                    core_1.transition('expanded => collapsed', core_1.animate('200ms ease-out'))
+                ])
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], NotificationComponent);

@@ -1,10 +1,10 @@
-<div class="icon" [ngSwitch]="notification.type">
+<div class="icon" @iconTrigger="expandedState" [ngSwitch]="notification.type">
     <i *ngSwitchCase="0" class="fa fa-comment"></i>
     <i *ngSwitchCase="1" class="fa fa-exclamation-triangle"></i>
     <i *ngSwitchCase="2" class="fa fa-code"></i>
     <i *ngSwitchCase="3" class="fa fa-credit-card"></i>
 </div>
-<div *ngIf="expanded" class="details">
+<div *ngIf="expanded" @detailsTrigger="'in'" class="details">
     <div class="message">
         <span>{{notification.message}}</span>
     </div>
