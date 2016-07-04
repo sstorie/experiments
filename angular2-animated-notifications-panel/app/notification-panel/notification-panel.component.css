@@ -5,7 +5,6 @@
     flex-direction: column;
     min-width: 0;
     min-height: 0;
-    padding: 8px;
     overflow: hidden;
 }
 
@@ -26,10 +25,14 @@ i {
     flex-direction: row;
     justify-content: flex-end;
     color: #E74C3C;
+    padding: 0 8px 0 8px;
+    height: 38px;
 }
 
 .title span {
     flex: 1;
+    font-family: 'Hind', sans-serif;
+    font-size: 1.5em;
 }
 
 .title--collapsed {
@@ -39,9 +42,9 @@ i {
 
 a {
     text-decoration: none;
+    margin-top: 6px;
 }
 
 a:hover {
-    text-decoration: underline;
     cursor: pointer;
 }
