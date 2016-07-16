@@ -1,0 +1,20 @@
+    .example {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+    }
+    
+    .list-item {
+      margin: 3px;
+      padding: 4px;
+      color: white;
+      background-color: green;
+    }
+    
+    .list {
+      margin-top: 10px;
+      width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+    }
