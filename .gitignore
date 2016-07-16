@@ -9,8 +9,8 @@
 
 ## Specific folder ignores
 ##
-*/app/*.js
-*/app/*.js.map
+*/app/**/*.js
+*/app/**/*.js.map
 */typings/*
 
 ## Ignore Visual Studio temporary files, build results, and
