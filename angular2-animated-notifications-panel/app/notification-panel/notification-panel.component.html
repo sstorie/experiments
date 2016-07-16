@@ -7,7 +7,7 @@
     </div>
 
     <div class="notifications">
-        <notification *ngFor="let n of notificationService.notifications$ | async"
+        <notification *ngFor="let n of notifications"
             [notification]="n"
             [expanded]="expanded"></notification>
     </div>

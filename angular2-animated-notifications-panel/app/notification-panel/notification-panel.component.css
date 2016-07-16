@@ -39,6 +39,10 @@ i {
     justify-content: flex-end;
 }
 
+.notifications {
+    flex: 1;
+    overflow-y: auto;
+}
 
 a {
     text-decoration: none;

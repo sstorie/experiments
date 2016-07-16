@@ -1,14 +1,16 @@
 import {
     Component,
     OnInit,
+    OnDestroy,
     trigger,
     state,
     style,
     transition,
     animate
 } from '@angular/core';
+import {Subscription} from "rxjs/Rx";
 
-import {NotificationService} from "../shared/index";
+import {Notification, NotificationService} from "../shared/index";
 import {NotificationComponent} from "../notification/index";
 
 @Component({
@@ -34,7 +36,7 @@ import {NotificationComponent} from "../notification/index";
                 color: '#E74C3C'
              })),
             state('expanded', style({ 
-                 backgroundColor: '#E74C3C',
+                backgroundColor: '#E74C3C',
                 color: '#FFFFFF'
             })),
             transition('collapsed => expanded', animate('200ms ease-in')),
@@ -58,15 +60,27 @@ import {NotificationComponent} from "../notification/index";
         ])
     ]
 })
-export class NotificationPanelComponent implements OnInit {
+export class NotificationPanelComponent implements OnInit, OnDestroy {
     expanded = false;
     expandedState = 'collapsed';
 
+    notifications: Notification[];
+    notificationSub: Subscription;
+
     constructor(
         private notificationService: NotificationService
-    ) { }
+    ) { 
+    }
 
-    ngOnInit() { }
+    ngOnInit() {
+    	this.notificationSub = this.notificationService.notifications$.subscribe((notifications) => {
+            this.notifications = notifications.sort((a, b) => b.date.valueOf() - a.date.valueOf()).slice(0, 10);
+        });
+     }
+
+    ngOnDestroy() {
+        this.notificationSub.unsubscribe();
+    }
 
     toggleExpandedState() {
         this.expandedState = this.expanded ? 'collapsed' : 'expanded';

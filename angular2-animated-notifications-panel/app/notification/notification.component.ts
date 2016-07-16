@@ -21,8 +21,8 @@ import {Notification, NotificationType} from "../shared/index";
     templateUrl: 'notification.component.html',
     styleUrls: ['notification.component.css'],
     animations: [
-        trigger('detailsTrigger', [
-            state('in', style({ opacity: '1' })),
+        trigger('visibleTrigger', [
+            state('visible', style({ opacity: '1' })),
             transition('void => *', [
                 style({ opacity: '0' }),
                 animate('200ms 300ms')
@@ -30,12 +30,6 @@ import {Notification, NotificationType} from "../shared/index";
             transition('* => void', [
                 animate('200ms', style({ opacity: '0' }))
             ])
-        ]),
-        trigger('iconTrigger', [
-            state('collapsed', style({ fontSize: '1.0em' })),
-            state('expanded', style({ fontSize: '1.5em' })),
-            transition('collapsed => expanded', animate('200ms ease-in')),
-            transition('expanded => collapsed', animate('200ms ease-out'))
         ])
     ]
 })

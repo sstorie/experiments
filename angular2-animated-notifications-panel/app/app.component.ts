@@ -16,10 +16,11 @@ export class AppComponent {
     private notificationService: NotificationService
   ) {
     
-    // this.notificationService.startRandomGeneration();
     for(let i = 0; i < 10; i++) {
       let n = this.notificationService.createRandomNotification();
       this.notificationService.addNotification(n);
     }
+
+    this.notificationService.startRandomGeneration();
   }
 }

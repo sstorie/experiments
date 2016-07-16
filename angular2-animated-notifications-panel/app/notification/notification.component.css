@@ -7,6 +7,8 @@
     min-width: 0;
     max-height: 48px;
     padding: 8px;
+    font-family: 'Hind', sans-serif;
+
 }
 
 .details {
@@ -27,6 +29,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    font-size: 0.8em;
+    font-size: 0.6em;
     color: #444444;
 }
