@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Angular 2 Bootstrapping with External Data using Webpack</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+  <my-app>Loading...</my-app>
+
+  <script src="assets/app.bundle.js"></script>
+
+  <script>
+    // In an actual app these are simply rendered on the page using
+    //  some server-side variables. The API URL could change based
+    //  on where the server is deployed, and the token could be
+    //  provided by some OAuth mechanism completely outside of 
+    //  Angular 2.
+    //
+    var apiUrl = "https://my-api";
+    var apiToken = "SOME_SERVER_PROVIDED_TOKEN";
+
+    // Now to *actually* bootstrap the application we need to 
+    //  call the function we created in the main module that 
+    //  wraps Angular's bootstrap function. Of course, that 
+    //  function is expecting the two arguments we have designed
+    //
+    window.MainModule.RunApplication(apiUrl, apiToken); 
+  </script>
+
+  </body>
+
+</html>
