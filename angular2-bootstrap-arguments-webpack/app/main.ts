@@ -4,10 +4,11 @@ import "es6-shim";
 import "zone.js/dist/zone";
 import "reflect-metadata";
 
-import { bootstrap } from '@angular/platform-browser-dynamic';
-import { provide } from "@angular/core";
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { provide, CompilerOptions } from "@angular/core";
 
-import {AppComponent} from './app.component';
+//import {AppComponent} from './app.component';
+import {AppModule} from "./app.module";
 import {ApiConfig} from "./api.service";
 
 // Expose the exports from the 'main' module into the global scope 
@@ -34,8 +35,15 @@ export function RunApplication(apiUrl: string, apiToken: string) {
     //  set up as well. Just create is as an injectable token here
     //  so other components/services can consume it.
     //
-    bootstrap(AppComponent, [
-        provide("api.config", { useValue: apiConfig })
-    ])
-    .catch(err => console.error(err));
+    // bootstrap(AppComponent, [
+    //     provide("api.config", { useValue: apiConfig })
+    // ])
+    // .catch(err => console.error(err));
+
+    platformBrowserDynamic().bootstrapModule(AppModule, {
+        providers: [
+            provide("api.config", { useValue: apiConfig })
+        ]
+    } as CompilerOptions);
+
 }
