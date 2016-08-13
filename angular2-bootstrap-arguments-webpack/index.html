@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Angular 2 Bootstrapping with External Data using Webpack</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <my-app>Loading...</my-app>
+
+  <script>
+    // To pass server-rendered data to the Angular app we'll just use the
+    //  'window' object as a container. In this case lets set a property
+    //  on it called 'appdata', and we'll consume that in our app module
+    //
+    window['appdata'] = {
+      apiUrl: "https://my-api", 
+      apiToken: "SOME_SERVER_PROVIDED_TOKEN"
+    }
+  </script>
+
+  <script src="assets/app.bundle.js"></script>
+
+</body>
+</html>
