@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
-    "expose-loader": "^0.7.1",
     "lite-server": "^2.2.2",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
