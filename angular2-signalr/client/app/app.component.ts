@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 
 import {ChannelService, ConnectionState} from "./services/channel.service";
-import {TaskComponent} from "./task.component";
 
 @Component({
     selector: 'my-app',
@@ -24,8 +23,7 @@ import {TaskComponent} from "./task.component";
                 [apiUrl]="'http://localhost:9123/tasks/short'"></task>
         </div>
 
-     `,
-    directives: [TaskComponent]
+     `
 })
 export class AppComponent implements OnInit {
 
