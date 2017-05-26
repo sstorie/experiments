@@ -20,6 +20,10 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="CurrentValue" FontSize="48"></TextBlock>
         </DockPanel>
 
+        <!-- This is the "magic" that allows ViewModel-first controls to work.          -->
+        <!-- By using the VMVH from ReactiveUI we can let the library automatically     -->
+        <!-- resolve the required view for us. The downside is we seem to lose any      -->
+        <!-- design-time view of the actual control here in the parent window.          -->
         <reactiveUi:ViewModelViewHost Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" x:Name="CounterViewModel"></reactiveUi:ViewModelViewHost>
     </Grid>
 </Window>

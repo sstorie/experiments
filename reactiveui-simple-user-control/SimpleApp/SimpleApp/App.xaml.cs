@@ -21,16 +21,19 @@ namespace SimpleApp
     {
         public App()
         {
-            // This is the "magic" that automatically registers each view against the IViewFor<> 
-            //  interface it implements. This is specific to Splat, and could be replaced by the
-            //  specific capabilities of another IoC library
-            //
             var assembly = Assembly.GetExecutingAssembly();
             var builder = new ContainerBuilder();
 
+            // Since we're using the ReactiveUI.Autofac library this is all we need to do
+            //  to wire up our views and view models. Since it's based on Autofac we can
+            //  also freely inject any dependencies we've registered.
+            //
             builder.RegisterForReactiveUI(assembly);
             RxAppAutofacExtension.UseAutofacDependencyResolver(builder.Build());
 
+            // We've replaced Splat's default locator with the Autofac version so
+            //  we can continue to use the code shown in the ReactiveUI examples
+            //
             var view = (Views.MainWindow)Locator.CurrentMutable.GetService(typeof(IViewFor<MainWindowViewModel>));
             view.Show();
         }
