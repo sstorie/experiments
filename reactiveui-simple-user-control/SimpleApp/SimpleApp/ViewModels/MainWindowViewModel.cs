@@ -11,12 +11,12 @@ namespace SimpleApp.ViewModels
 
         public CounterViewModel CounterViewModel { get; }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(CounterViewModel counterViewModel)
         {
             Observable.Interval(TimeSpan.FromSeconds(1))
                 .ToProperty(this, x => x.CurrentValue, out _currentValue, 0, false, RxApp.MainThreadScheduler);
 
-            CounterViewModel = new CounterViewModel();
+            CounterViewModel = counterViewModel;
         }
     }
 }

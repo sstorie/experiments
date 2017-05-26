@@ -15,9 +15,9 @@ namespace SimpleApp.Views
                 typeof(MainWindowViewModel), 
                 typeof(MainWindow));
 
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
-            ViewModel = new MainWindowViewModel();
+            ViewModel = viewModel;
             InitializeComponent();
             DataContext = ViewModel;
 
