@@ -1,9 +1,11 @@
-﻿<Window x:Class="SimpleApp.MainWindow"
+﻿<Window x:Class="SimpleApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleApp"
+        xmlns:views="clr-namespace:SimpleApp.Views"
+        xmlns:reactiveUi="http://reactiveui.net"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid Margin="8">
@@ -18,10 +20,6 @@
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="CurrentValue" FontSize="48"></TextBlock>
         </DockPanel>
 
-        <DockPanel Grid.Row="1"  LastChildFill="True">
-            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center">Embedded User Control</TextBlock>
-
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Nothing yet...</TextBlock>
-        </DockPanel>
+        <reactiveUi:ViewModelViewHost Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" x:Name="CounterViewModel"></reactiveUi:ViewModelViewHost>
     </Grid>
 </Window>

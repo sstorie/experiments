@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using ReactiveUI;
+using SimpleApp.ViewModels;
 
-namespace SimpleApp
+namespace SimpleApp.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IViewFor<MainWindowViewModel>
     {
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(
+                "ViewModel", 
+                typeof(MainWindowViewModel), 
+                typeof(MainWindow));
+
         public MainWindow()
         {
             ViewModel = new MainWindowViewModel();
@@ -30,13 +24,14 @@ namespace SimpleApp
             this.WhenActivated(d =>
             {
                 d(this.OneWayBind(ViewModel, vm => vm.CurrentValue, v => v.CurrentValue.Text));
+                d(this.OneWayBind(ViewModel, vm => vm.CounterViewModel, v => v.CounterViewModel.ViewModel));
             });
         }
 
         object IViewFor.ViewModel
         {
-            get { return ViewModel; }
-            set { ViewModel = (MainWindowViewModel)value; }
+            get => ViewModel;
+            set => ViewModel = (MainWindowViewModel)value;
         }
 
         public MainWindowViewModel ViewModel { get; set; }
