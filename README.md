@@ -27,6 +27,7 @@ You can also use [live-server](https://www.npmjs.com/package/live-server) to get
 ## The list
 
 Here's an overall list of what's in here:
+- [reactiveui-simple-user-control](/sstorie/experiments/tree/develop/reactiveui-simple-user-control/SimpleApp) - A simple app to help understand how to build user controls with ReactiveUI and WPF
 - [angular2-animated-notifications-panel](https://github.com/sstorie/experiments/tree/master/angular2-animated-notifications-panel) - Playing with Angular 2 animations to build a sliding notification panel
 - [angular2-onpush-form-control](https://github.com/sstorie/experiments/tree/master/angular2-onpush-form-control) - Exploring the effect of using `OnPush` change detection when subscribing to changes in Angular's FormControl class
 - [0-60-with-angular2-and-visual-studio](https://github.com/sstorie/experiments/tree/master/0-60-with-angular2-and-visual-studio/source) - An example I created to support an AngularMN meetup presentation I gave
