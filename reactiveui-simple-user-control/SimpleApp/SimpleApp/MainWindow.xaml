@@ -6,7 +6,22 @@
         xmlns:local="clr-namespace:SimpleApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0"  LastChildFill="True">
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center">MainWindow Property</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="CurrentValue" FontSize="48"></TextBlock>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1"  LastChildFill="True">
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center">Embedded User Control</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Nothing yet...</TextBlock>
+        </DockPanel>
     </Grid>
 </Window>
