@@ -1,0 +1,29 @@
+﻿<Window x:Class="SimpleApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleApp"
+        xmlns:views="clr-namespace:SimpleApp.Views"
+        xmlns:reactiveUi="http://reactiveui.net"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0"  LastChildFill="True">
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center">MainWindow Property</TextBlock>
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="CurrentValue" FontSize="48"></TextBlock>
+        </DockPanel>
+
+        <!-- This is the "magic" that allows ViewModel-first controls to work.          -->
+        <!-- By using the VMVH from ReactiveUI we can let the library automatically     -->
+        <!-- resolve the required view for us. The downside is we seem to lose any      -->
+        <!-- design-time view of the actual control here in the parent window.          -->
+        <reactiveUi:ViewModelViewHost Grid.Row="1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" x:Name="CounterViewModel"></reactiveUi:ViewModelViewHost>
+    </Grid>
+</Window>
