@@ -6,7 +6,6 @@ import {NotificationPanelComponent} from "./notification-panel/index";
 @Component({
   selector: 'my-app',
   moduleId: module.id,
-  directives: [NotificationPanelComponent],
   templateUrl: "app.component.html",
   styleUrls: ['app.component.css']
 })
