@@ -1,6 +1,10 @@
 # Experiments
 This repository contains a bunch of stand alone experiments I'm using to evaluate different technologies.
 
+## Quick note about security vulnerabilities
+
+The code in this repository uses versions of Angular from a few years ago, and I am not actively updating them to reflect the latest versions of things. As a result there are identified security vulnerabilities in this repository, so be aware should you choose to use this code.
+
 ## Running these experiments
 
 Most of these experiments require just a simple http server. I use the standard [http-server](https://www.npmjs.com/package/http-server) available via npm:
